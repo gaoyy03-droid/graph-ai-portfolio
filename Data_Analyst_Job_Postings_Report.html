@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Grace Yuying Gao | Generative AI for Work & Research</title>
-  <meta name="description" content="Grace Yuying Gao's portfolio for Generative AI for Work & Research, featuring AI learning projects, data analysis, research synthesis, and responsible automation." />
+
+  <meta
+    name="description"
+    content="Grace Yuying Gao's portfolio for Generative AI for Work & Research, featuring AI learning projects, data analysis, research synthesis, and responsible automation."
+  />
 
   <style>
     :root {
@@ -351,7 +356,7 @@
       gap: 18px;
     }
 
-    .submission-card {
+    .submission {
       position: relative;
       overflow: hidden;
       min-height: 220px;
@@ -365,7 +370,7 @@
       box-shadow: var(--shadow);
     }
 
-    .submission-card::before {
+    .submission::before {
       content: "";
       position: absolute;
       top: -60px;
@@ -389,11 +394,12 @@
       margin-bottom: 18px;
     }
 
-    .submission-card p {
+    .submission p {
       margin-top: 10px;
     }
 
-    .project-link {
+    .project-link,
+    .placeholder-link {
       display: inline-flex;
       margin-top: 20px;
       color: var(--accent-dark);
@@ -402,6 +408,10 @@
 
     .project-link:hover {
       text-decoration: underline;
+    }
+
+    .placeholder-link {
+      color: var(--muted);
     }
 
     .capstone-grid {
@@ -561,7 +571,9 @@
               pharmaceutical programs. My work spans CMC review, external supply quality, inspection readiness,
               portfolio optimization, and cross-regional launches for global markets.
             </p>
+
             <br />
+
             <p>
               Alongside my industry work, I am pursuing doctoral research in global health, with an emphasis on
               cardiovascular diseases, environmental risk factors, and translating complex evidence into practical
@@ -626,16 +638,19 @@
           <div class="section-head">
             <span class="eyebrow">About the course</span>
             <h2>No-code AI tools for responsible task automation.</h2>
-            <p>
-              The GRAPH Courses · 8-week live cohort
-            </p>
+            <p>The GRAPH Courses · 8-week live cohort</p>
+
             <br />
+
+            <h3>Generative AI for Work & Research Productivity</h3>
             <p>
               This course combines weekly live workshops, help sessions, community discussion, assessment feedback,
               capstone coaching, and a tutorial library. The goal is practical: use AI responsibly to create documents,
               analyze data, synthesize research, build chatbots, automate workflows, and communicate findings clearly.
             </p>
+
             <br />
+
             <ul>
               <li>Responsible AI use for academic and professional tasks</li>
               <li>Hands-on workflows using no-code and low-code AI tools</li>
@@ -701,33 +716,48 @@
         <div class="section-head">
           <span class="eyebrow">My weekly submissions</span>
           <h2>A living archive of applied AI experiments.</h2>
-          <p>Updated with Workshop 3</p>
+          <p>Updated with Workshop 2 and Workshop 3</p>
         </div>
 
         <div class="submissions-grid">
-          <article class="submission-card">
+          <article class="submission">
             <div>
               <div class="week">W1</div>
               <h3>Research Website & AI Foundations</h3>
               <p>Placeholder for Markdown, HTML, Canvas, and responsible prompting work.</p>
             </div>
-            <a class="project-link" href="https://gaoyy03-droid.github.io/graph-ai-portfolio/" target="_blank" rel="noopener">
+
+            <a
+              class="project-link"
+              href="https://gaoyy03-droid.github.io/graph-ai-portfolio/"
+              target="_blank"
+              rel="noopener"
+            >
               View project website →
             </a>
           </article>
 
-          <article class="submission-card">
+          <article class="submission">
             <div>
               <div class="week">W2</div>
-              <h3>Workshop 2: Automated Data Analysis</h3>
-              <p>Gapminder data analysis exploring relationships between two global indicators using AI tools.</p>
+              <h3>Workshop 2: Life Expectancy and GDP Analysis</h3>
+              <p>
+                Analyzed the relationship between life expectancy and GDP per capita in 2020 using AI-assisted
+                data analysis and visualization tools.
+              </p>
             </div>
-            <a class="project-link" href="https://gaoyy03-droid.github.io/graph-ai-portfolio/Gapminder_Report.html" target="_blank" rel="noopener">
+
+            <a
+              class="project-link"
+              href="https://gaoyy03-droid.github.io/graph-ai-portfolio/life_expectancy_gdp_per_capita_2020_report.html"
+              target="_blank"
+              rel="noopener"
+            >
               View project report →
             </a>
           </article>
 
-          <article class="submission-card">
+          <article class="submission">
             <div>
               <div class="week">W3</div>
               <h3>Workshop 3: Job Market Data Analysis</h3>
@@ -737,54 +767,65 @@
                 and salaries.
               </p>
             </div>
-            <a class="project-link" href="https://gaoyy03-droid.github.io/graph-ai-portfolio/Data_Analyst_Job_Postings_Report.html" target="_blank" rel="noopener">
+
+            <a
+              class="project-link"
+              href="https://gaoyy03-droid.github.io/graph-ai-portfolio/Data_Analyst_Job_Postings_Report.html"
+              target="_blank"
+              rel="noopener"
+            >
               View project report →
             </a>
           </article>
 
-          <article class="submission-card">
+          <article class="submission">
             <div>
               <div class="week">W4</div>
               <h3>Custom GPT / Chatbot Prototype</h3>
               <p>Placeholder for a research or quality-management assistant concept.</p>
             </div>
-            <a class="project-link" href="#submissions">Add link later →</a>
+
+            <span class="placeholder-link">Add link later →</span>
           </article>
 
-          <article class="submission-card">
+          <article class="submission">
             <div>
               <div class="week">W5</div>
               <h3>Task Automation Workflow</h3>
               <p>Placeholder for a practical AI agent or app-to-app automation demo.</p>
             </div>
-            <a class="project-link" href="#submissions">Add link later →</a>
+
+            <span class="placeholder-link">Add link later →</span>
           </article>
 
-          <article class="submission-card">
+          <article class="submission">
             <div>
               <div class="week">W6</div>
               <h3>Communication & Outreach Asset</h3>
               <p>Placeholder for a scientific figure, summary, video abstract, or content plan.</p>
             </div>
-            <a class="project-link" href="#submissions">Add link later →</a>
+
+            <span class="placeholder-link">Add link later →</span>
           </article>
 
-          <article class="submission-card">
+          <article class="submission">
             <div>
               <div class="week">W7</div>
               <h3>Capstone Progress</h3>
               <p>Placeholder for prototype updates, peer feedback, and implementation notes.</p>
             </div>
-            <a class="project-link" href="#submissions">Add link later →</a>
+
+            <span class="placeholder-link">Add link later →</span>
           </article>
 
-          <article class="submission-card">
+          <article class="submission">
             <div>
               <div class="week">W8</div>
               <h3>Final Showcase</h3>
               <p>Placeholder for the final project presentation and reflection.</p>
             </div>
-            <a class="project-link" href="#submissions">Add link later →</a>
+
+            <span class="placeholder-link">Add link later →</span>
           </article>
         </div>
       </div>
@@ -797,7 +838,9 @@
             <span class="eyebrow">Capstone direction</span>
             <h2>Responsible AI for evidence-to-action workflows.</h2>
             <p>Draft concept</p>
+
             <br />
+
             <p>
               My capstone may explore how generative AI can help professionals transform complex scientific
               and quality data into transparent, auditable, and decision-ready outputs — for example,
@@ -811,7 +854,9 @@
             <p>
               Accelerate literature review, summarize evidence for different audiences, and preserve scientific traceability.
             </p>
+
             <br />
+
             <h3>Work value</h3>
             <p>
               Reduce repetitive documentation tasks while supporting quality, compliance, and cross-functional alignment.
@@ -824,7 +869,10 @@
 
   <footer>
     <div class="container footer-row">
-      <p>Grace Yuying Gao Portfolio for Generative AI for Work & Research · Built as a one-page HTML site without frameworks.</p>
+      <p>
+        Grace Yuying Gao Portfolio for Generative AI for Work & Research · Built as a one-page HTML site without frameworks.
+      </p>
+
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#course">Course</a>
