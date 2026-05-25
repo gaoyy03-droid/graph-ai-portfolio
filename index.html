@@ -3,1023 +3,879 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Grace Yuying Gao | Generative AI for Work & Research</title>
+
+  <meta
+    name="description"
+    content="Grace Yuying Gao's portfolio for Generative AI for Work & Research, featuring AI learning projects, data analysis, research synthesis, and responsible automation."
+  />
+
   <style>
     :root {
-      --ink: #102a2f;
-      --muted: #5b7075;
-      --teal: #2f7d84;
-      --deep-teal: #0e4b53;
-      --mint: #c9eee7;
-      --gold: #ffdd57;
-      --cream: #fff8e5;
-      --rose: #ff8e7f;
-      --violet: #7967ff;
-      --white: #ffffff;
-      --shadow: 0 24px 70px rgba(10, 49, 55, 0.18);
-      --soft-shadow: 0 12px 30px rgba(10, 49, 55, 0.12);
+      --bg: #f7f4ef;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #667085;
+      --accent: #7c3aed;
+      --accent-dark: #5b21b6;
+      --accent-soft: #ede9fe;
+      --line: #e5e7eb;
+      --shadow: 0 18px 45px rgba(31, 41, 51, 0.08);
+      --radius: 24px;
+      --max-width: 1120px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
       background:
-        radial-gradient(circle at 7% 6%, rgba(255, 221, 87, 0.42), transparent 24rem),
-        radial-gradient(circle at 95% 12%, rgba(121, 103, 255, 0.20), transparent 22rem),
-        linear-gradient(135deg, #f7fffd 0%, #eef7f4 42%, #fff8e5 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.10), transparent 32rem),
+        radial-gradient(circle at top right, rgba(14, 165, 233, 0.10), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.32;
-      background-image:
-        linear-gradient(rgba(47, 125, 132, 0.10) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(47, 125, 132, 0.10) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: radial-gradient(circle at center, black, transparent 75%);
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    a { color: inherit; text-decoration: none; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    .page {
-      width: min(1180px, calc(100% - 36px));
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
       margin: 0 auto;
-      padding: 28px 0 52px;
-      position: relative;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(247, 244, 239, 0.84);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
     }
 
     .nav {
-      position: sticky;
-      top: 16px;
-      z-index: 10;
+      height: 72px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 18px;
-      padding: 14px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.72);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--soft-shadow);
+      justify-content: space-between;
+      gap: 24px;
     }
 
     .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 850;
-      letter-spacing: -0.04em;
     }
 
     .brand-mark {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      color: var(--deep-teal);
-      background: conic-gradient(from 210deg, var(--gold), #fff0a8, var(--mint), var(--gold));
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
+      color: white;
+      background: linear-gradient(135deg, var(--accent), #06b6d4);
+      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.24);
     }
 
     .nav-links {
       display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      padding: 9px 13px;
-      border-radius: 999px;
+      align-items: center;
+      gap: 18px;
       color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 700;
-      transition: 0.25s ease;
+      font-size: 0.95rem;
+      font-weight: 600;
     }
 
     .nav-links a:hover {
-      color: var(--deep-teal);
-      background: rgba(47, 125, 132, 0.10);
+      color: var(--accent-dark);
+    }
+
+    section {
+      padding: 82px 0;
     }
 
     .hero {
-      min-height: 620px;
+      padding: 92px 0 80px;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.06fr 0.94fr;
-      gap: 34px;
+      grid-template-columns: 1.35fr 0.75fr;
+      gap: 40px;
       align-items: center;
-      padding: 70px 0 50px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       padding: 8px 12px;
-      border: 1px solid rgba(47, 125, 132, 0.16);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.70);
-      color: var(--deep-teal);
-      font-weight: 800;
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
     }
 
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 6px rgba(255, 221, 87, 0.28);
+    h1,
+    h2,
+    h3 {
+      line-height: 1.12;
+      margin: 0;
+      letter-spacing: -0.04em;
     }
 
     h1 {
-      margin: 24px 0 18px;
-      font-size: clamp(3.1rem, 7vw, 6.8rem);
-      line-height: 0.86;
-      letter-spacing: -0.09em;
-      max-width: 760px;
+      font-size: clamp(2.6rem, 6vw, 5.8rem);
+      max-width: 880px;
     }
 
-    .gradient-text {
-      background: linear-gradient(110deg, var(--deep-teal), var(--teal), var(--violet));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      margin-bottom: 16px;
     }
 
-    .hero-lede {
-      font-size: clamp(1.03rem, 2vw, 1.25rem);
-      line-height: 1.75;
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0;
       color: var(--muted);
-      max-width: 650px;
-      margin: 0 0 28px;
     }
 
-    .hero-actions {
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 760px;
+      margin-top: 22px;
+    }
+
+    .button-row {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      align-items: center;
+      gap: 14px;
+      margin-top: 30px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 13px 18px;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
       border-radius: 999px;
-      font-weight: 850;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid transparent;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
-    .button.primary {
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
       color: white;
-      background: linear-gradient(135deg, var(--deep-teal), var(--teal));
-      box-shadow: 0 16px 32px rgba(14, 75, 83, 0.25);
+      background: var(--accent);
+      box-shadow: 0 16px 28px rgba(124, 58, 237, 0.25);
     }
 
-    .button.secondary {
-      color: var(--deep-teal);
-      background: rgba(255, 255, 255, 0.76);
-      border: 1px solid rgba(47, 125, 132, 0.14);
+    .button-primary:hover {
+      background: var(--accent-dark);
     }
 
-    .button:hover { transform: translateY(-2px); }
+    .button-secondary {
+      background: white;
+      border-color: var(--line);
+      color: var(--text);
+    }
 
     .portrait-card {
-      position: relative;
-      min-height: 520px;
-      border-radius: 42px;
-      padding: 24px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.82), rgba(255,255,255,0.35)),
-        linear-gradient(135deg, rgba(47, 125, 132, 0.17), rgba(255, 221, 87, 0.20));
-      border: 1px solid rgba(255, 255, 255, 0.82);
+      background: var(--card);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow: hidden;
+      padding: 24px;
+      border: 1px solid rgba(229, 231, 235, 0.9);
     }
 
-    .portrait-card::before,
-    .portrait-card::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(2px);
-    }
-
-    .portrait-card::before {
-      width: 260px;
-      height: 260px;
-      right: -80px;
-      top: -70px;
-      background: radial-gradient(circle, rgba(255, 221, 87, 0.88), transparent 68%);
-    }
-
-    .portrait-card::after {
-      width: 270px;
-      height: 270px;
-      left: -90px;
-      bottom: -90px;
-      background: radial-gradient(circle, rgba(47, 125, 132, 0.44), transparent 70%);
-    }
-
-    .orbit {
-      position: absolute;
-      inset: 48px;
-      border: 1px dashed rgba(14, 75, 83, 0.23);
-      border-radius: 50%;
-      animation: spin 26s linear infinite;
-    }
-
-    .orbit:nth-child(2) {
-      inset: 92px;
-      animation-direction: reverse;
-      animation-duration: 34s;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .profile-badge {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      min-height: 472px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-radius: 32px;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.74);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.88);
-    }
-
-    .avatar {
-      width: 128px;
-      height: 128px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      border: 5px solid rgba(255, 255, 255, 0.92);
-      box-shadow: 0 20px 42px rgba(47, 125, 132, 0.24);
-      background: linear-gradient(135deg, var(--gold), var(--mint));
-    }
-
-    .monogram {
-      width: 98px;
-      height: 98px;
-      border-radius: 30px;
+    .portrait-placeholder {
+      min-height: 320px;
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, rgba(124, 58, 237, 0.16), rgba(14, 165, 233, 0.16)),
+        #fafafa;
       display: grid;
       place-items: center;
-      font-size: 2.1rem;
-      font-weight: 950;
-      color: var(--deep-teal);
-      background: linear-gradient(135deg, var(--gold), #fff7c5 55%, var(--mint));
-      box-shadow: 0 18px 36px rgba(47, 125, 132, 0.16);
+      text-align: center;
+      padding: 28px;
     }
 
-    .profile-badge h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      letter-spacing: -0.07em;
-      line-height: 0.96;
-      margin: 24px 0 12px;
+    .portrait-placeholder strong {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: 8px;
     }
 
-    .profile-badge p {
-      color: var(--muted);
-      line-height: 1.65;
-      margin: 0;
-    }
-
-    .stats {
+    .stat-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      margin-top: 26px;
+      margin-top: 18px;
     }
 
     .stat {
+      border-radius: 18px;
+      background: #fafafa;
+      border: 1px solid var(--line);
       padding: 14px;
-      border-radius: 20px;
-      background: rgba(47, 125, 132, 0.08);
-      border: 1px solid rgba(47, 125, 132, 0.10);
     }
 
     .stat strong {
       display: block;
-      font-size: 1.2rem;
-      color: var(--deep-teal);
+      font-size: 1.4rem;
+      color: var(--accent-dark);
     }
 
-    .stat span {
-      display: block;
-      margin-top: 4px;
-      font-size: 0.74rem;
-      color: var(--muted);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 32px;
     }
 
-    section {
-      margin: 24px 0;
-      scroll-margin-top: 96px;
-    }
-
-    .section-card {
-      position: relative;
-      padding: clamp(24px, 5vw, 48px);
-      border-radius: 38px;
-      background: rgba(255, 255, 255, 0.76);
-      border: 1px solid rgba(255, 255, 255, 0.86);
-      box-shadow: var(--soft-shadow);
-      overflow: hidden;
-    }
-
-    .section-card::before {
-      content: "";
-      position: absolute;
-      width: 340px;
-      height: 340px;
-      right: -170px;
-      top: -190px;
-      background: radial-gradient(circle, rgba(201, 238, 231, 0.74), transparent 70%);
-      pointer-events: none;
-    }
-
-    .section-header {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      gap: 22px;
-      align-items: end;
-      margin-bottom: 26px;
-    }
-
-    .kicker {
-      color: var(--teal);
-      font-size: 0.8rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    h2.section-title {
-      margin: 8px 0 0;
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      line-height: 0.98;
-      letter-spacing: -0.065em;
-    }
-
-    .pill {
-      white-space: nowrap;
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: var(--deep-teal);
-      font-size: 0.88rem;
-      font-weight: 850;
-      background: rgba(255, 221, 87, 0.36);
-      border: 1px solid rgba(255, 221, 87, 0.58);
+    .section-head p {
+      font-size: 1.05rem;
+      margin-top: 8px;
     }
 
     .about-grid {
-      position: relative;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
 
-    .copy {
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.82;
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      box-shadow: var(--shadow);
     }
 
-    .copy strong { color: var(--deep-teal); }
-
-    .chips {
+    .tag-row {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      gap: 10px;
+      margin-top: 22px;
     }
 
-    .chip {
-      padding: 10px 13px;
+    .tag {
+      padding: 8px 10px;
       border-radius: 999px;
-      background: #f4fbf9;
-      border: 1px solid rgba(47, 125, 132, 0.12);
-      color: var(--deep-teal);
-      font-size: 0.9rem;
-      font-weight: 760;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
     }
 
     .timeline {
       display: grid;
-      gap: 12px;
+      gap: 18px;
     }
 
     .timeline-item {
-      padding: 16px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(14, 75, 83, 0.08), rgba(255, 255, 255, 0.75));
-      border: 1px solid rgba(47, 125, 132, 0.10);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .timeline-item .time {
-      color: var(--teal);
-      font-weight: 900;
-      font-size: 0.82rem;
+    .timeline-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
     }
 
-    .timeline-item h3 {
-      margin: 6px 0 4px;
-      font-size: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .timeline-item p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 0.92rem;
+    .date {
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 0.9rem;
     }
 
     .course-grid {
-      position: relative;
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 26px;
-      align-items: stretch;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 24px;
+      align-items: start;
     }
 
-    .course-feature {
-      padding: 30px;
-      border-radius: 30px;
-      color: white;
-      background:
-        radial-gradient(circle at 88% 12%, rgba(255, 221, 87, 0.85), transparent 12rem),
-        linear-gradient(145deg, var(--deep-teal), var(--teal));
-      box-shadow: 0 24px 54px rgba(14, 75, 83, 0.22);
-      min-height: 100%;
-    }
-
-    .course-feature h3 {
-      margin: 0 0 14px;
-      font-size: 2rem;
-      line-height: 1;
-      letter-spacing: -0.05em;
-    }
-
-    .course-feature p,
-    .course-feature li {
-      color: rgba(255, 255, 255, 0.83);
-      line-height: 1.65;
-    }
-
-    .course-feature ul {
-      padding-left: 18px;
-      margin: 18px 0 0;
-    }
-
-    .modules {
+    .module-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
     .module {
-      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 20px;
       padding: 18px;
-      min-height: 146px;
-      border-radius: 24px;
-      background: #ffffff;
-      border: 1px solid rgba(47, 125, 132, 0.10);
-      box-shadow: 0 8px 20px rgba(10, 49, 55, 0.07);
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: #fcfcfd;
     }
 
-    .module:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 34px rgba(10, 49, 55, 0.12);
-    }
-
-    .module::after {
-      content: attr(data-number);
-      position: absolute;
-      right: 14px;
-      bottom: -9px;
-      font-size: 4.8rem;
-      font-weight: 950;
-      color: rgba(47, 125, 132, 0.07);
-      letter-spacing: -0.08em;
-    }
-
-    .module b {
-      display: block;
-      color: var(--teal);
-      font-size: 0.78rem;
+    .module-number {
+      font-size: 0.8rem;
+      color: var(--accent-dark);
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       margin-bottom: 8px;
     }
 
-    .module h3 {
-      position: relative;
-      z-index: 1;
-      margin: 0 0 8px;
-      letter-spacing: -0.035em;
-      line-height: 1.12;
-    }
-
-    .module p {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.48;
-    }
-
-    .submissions {
-      position: relative;
+    .submissions-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
     .submission {
-      min-height: 190px;
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 18px;
-      border-radius: 26px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.78)),
-        linear-gradient(135deg, rgba(47, 125, 132, 0.18), rgba(255, 221, 87, 0.25));
-      border: 1px solid rgba(47, 125, 132, 0.10);
-      box-shadow: 0 9px 22px rgba(10, 49, 55, 0.08);
-      transition: transform 0.2s ease;
+      background: white;
+      border: 1px solid rgba(229, 231, 235, 0.95);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
     }
 
-    .submission:hover { transform: translateY(-4px); }
+    .submission::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(124, 58, 237, 0.08);
+    }
 
     .week {
+      position: relative;
       width: 44px;
       height: 44px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      border-radius: 16px;
-      color: var(--deep-teal);
-      background: var(--gold);
-      font-weight: 950;
-    }
-
-    .submission h3 {
-      margin: 16px 0 8px;
-      font-size: 1.05rem;
-      letter-spacing: -0.03em;
+      color: var(--accent-dark);
+      font-weight: 900;
+      background: var(--accent-soft);
+      margin-bottom: 18px;
     }
 
     .submission p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.5;
+      margin-top: 10px;
+    }
+
+    .project-link,
+    .placeholder-link {
+      display: inline-flex;
+      margin-top: 20px;
+      color: var(--accent-dark);
+      font-weight: 900;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
     }
 
     .placeholder-link {
-      margin-top: 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--teal);
-      font-weight: 850;
-      font-size: 0.88rem;
-    }
-
-    .placeholder-link:hover {
-      color: var(--deep-teal);
-    }
-
-    .capstone {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 22px;
-    }
-
-    .mini-card {
-      padding: 20px;
-      border-radius: 26px;
-      background: rgba(255, 248, 229, 0.72);
-      border: 1px solid rgba(255, 221, 87, 0.36);
-    }
-
-    .mini-card h3 {
-      margin: 0 0 8px;
-      letter-spacing: -0.03em;
-    }
-
-    .mini-card p {
-      margin: 0;
       color: var(--muted);
-      line-height: 1.55;
+    }
+
+    .capstone-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.10), rgba(14, 165, 233, 0.10));
+      border: 1px solid rgba(124, 58, 237, 0.15);
+      border-radius: var(--radius);
+      padding: 28px;
     }
 
     footer {
-      margin-top: 28px;
-      padding: 26px;
-      border-radius: 34px;
-      color: rgba(255, 255, 255, 0.78);
-      background: linear-gradient(135deg, var(--deep-teal), #17343a);
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .footer-row {
       display: flex;
       justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
       align-items: center;
-      box-shadow: var(--shadow);
-    }
-
-    footer strong {
-      color: white;
-      display: block;
-      margin-bottom: 4px;
     }
 
     .footer-links {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 16px;
+      font-weight: 700;
     }
 
-    .footer-links a {
-      color: white;
-      border: 1px solid rgba(255,255,255,0.20);
-      padding: 9px 12px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.88rem;
-      background: rgba(255,255,255,0.08);
-    }
-
-    @media (max-width: 920px) {
-      .hero,
+    @media (max-width: 900px) {
+      .hero-grid,
       .about-grid,
       .course-grid,
-      .capstone {
+      .capstone-grid {
         grid-template-columns: 1fr;
       }
 
-      .portrait-card { min-height: 460px; }
-      .submissions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .section-header { align-items: start; flex-direction: column; }
+      .submissions-grid,
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        height: auto;
+        padding: 16px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      section {
+        padding: 62px 0;
+      }
     }
 
-    @media (max-width: 640px) {
-      .page { width: min(100% - 22px, 1180px); padding-top: 12px; }
-      .nav { border-radius: 26px; align-items: flex-start; flex-direction: column; }
-      .nav-links { justify-content: flex-start; }
-      .hero { padding-top: 46px; }
-      .stats,
-      .modules,
-      .submissions { grid-template-columns: 1fr; }
-      .profile-badge { padding: 22px; }
-      .section-card { border-radius: 28px; }
-      footer { border-radius: 26px; }
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <main class="page">
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#top" class="brand" aria-label="Grace Yuying Gao portfolio home">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Grace Gao AI Portfolio home">
         <span class="brand-mark">✦</span>
         <span>Grace Gao · AI Portfolio</span>
       </a>
-      <div class="nav-links">
-        <a href="#about-me">About me</a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About me</a>
         <a href="#course">Course</a>
         <a href="#submissions">Submissions</a>
         <a href="#capstone">Capstone</a>
-      </div>
-    </nav>
+      </nav>
+    </div>
+  </header>
 
-    <header class="hero" id="top">
-      <div>
-        <span class="eyebrow"><span class="dot"></span> Generative AI for Work & Research</span>
-        <h1>Learning AI with <span class="gradient-text">scientific rigor</span> and real-world impact.</h1>
-        <p class="hero-lede">
-          A one-page portfolio by Grace Yuying Gao, connecting pharmaceutical quality leadership,
-          global health research, data-driven supply resilience, and responsible no-code AI workflows.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#submissions">View weekly work →</a>
-          <a class="button secondary" href="#course">Explore the course</a>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Generative AI for Work & Research</span>
+          <h1>Learning AI with scientific rigor and real-world impact.</h1>
+          <p>
+            A one-page portfolio by Grace Yuying Gao, connecting pharmaceutical quality leadership,
+            global health research, data-driven supply resilience, and responsible no-code AI workflows.
+          </p>
+
+          <div class="button-row">
+            <a class="button button-primary" href="#submissions">View weekly work →</a>
+            <a class="button button-secondary" href="#course">Explore the course</a>
+          </div>
+        </div>
+
+        <aside class="portrait-card">
+          <div class="portrait-placeholder">
+            <div>
+              <strong>Grace Yuying Gao</strong>
+              <p>
+                Global Quality Manager in Basel with deep experience across MSD, Bayer, and Novartis;
+                part-time PhD researcher focused on cardiovascular disease management and environmental risk factors.
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-grid" aria-label="Portfolio statistics">
+            <div class="stat">
+              <strong>18+</strong>
+              <span>Years pharma leadership</span>
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              <span>Global companies</span>
+            </div>
+            <div class="stat">
+              <strong>8</strong>
+              <span>AI learning weeks</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">About me</span>
+          <h2>Pharma quality leader, researcher, bridge-builder.</h2>
+          <p>Basel · Switzerland</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card">
+            <p>
+              I bring strategic quality, product strategy, API and small-molecule expertise to global
+              pharmaceutical programs. My work spans CMC review, external supply quality, inspection readiness,
+              portfolio optimization, and cross-regional launches for global markets.
+            </p>
+
+            <br />
+
+            <p>
+              Alongside my industry work, I am pursuing doctoral research in global health, with an emphasis on
+              cardiovascular diseases, environmental risk factors, and translating complex evidence into practical
+              health insights. I am especially interested in how generative AI can support literature synthesis,
+              scientific communication, responsible automation, and reproducible analysis.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Quality</span>
+              <span class="tag">Product Strategy</span>
+              <span class="tag">API</span>
+              <span class="tag">Supply Robustness</span>
+              <span class="tag">Global Health</span>
+              <span class="tag">Analytics</span>
+              <span class="tag">CVD Research</span>
+              <span class="tag">AI for Productivity</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="date">2019–Present</div>
+                <div>
+                  <h3>Global Quality Manager · Bayer</h3>
+                  <p>Leading quality compliance, data transparency, APAC onboarding, and global reliability initiatives.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="date">2015–2019</div>
+                <div>
+                  <h3>Senior Project Manager · Bayer</h3>
+                  <p>Delivered launch, regulatory, resource, and supply-chain projects across EU and APAC portfolios.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="date">2010–2014</div>
+                <div>
+                  <h3>Product Manager External Supply · MSD</h3>
+                  <p>Managed strategic external supply and global regulatory strategies for new molecules.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="date">Education</div>
+                <div>
+                  <h3>MIT MicroMasters · Tsinghua · ECNU</h3>
+                  <p>Supply chain analytics, scientific publishing, and a foundation in rigorous interdisciplinary research.</p>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
-      <aside class="portrait-card" aria-label="Profile summary card">
-        <div class="orbit"></div>
-        <div class="orbit"></div>
-        <div class="profile-badge">
-          <div>
-            <img class="avatar" src="https://github.com/gaoyy03-droid/graph-ai-portfolio/blob/main/Photo.jpg?raw=true" alt="Portrait of Grace Yuying Gao" />
-            <h2>Grace Yuying Gao</h2>
+    <section id="course">
+      <div class="container">
+        <div class="course-grid">
+          <div class="section-head">
+            <span class="eyebrow">About the course</span>
+            <h2>No-code AI tools for responsible task automation.</h2>
+            <p>The GRAPH Courses · 8-week live cohort</p>
+
+            <br />
+
+            <h3>Generative AI for Work & Research Productivity</h3>
             <p>
-              Global Quality Manager in Basel with deep experience across MSD, Bayer, and Novartis;
-              part-time PhD researcher focused on cardiovascular disease management and environmental risk factors.
+              This course combines weekly live workshops, help sessions, community discussion, assessment feedback,
+              capstone coaching, and a tutorial library. The goal is practical: use AI responsibly to create documents,
+              analyze data, synthesize research, build chatbots, automate workflows, and communicate findings clearly.
+            </p>
+
+            <br />
+
+            <ul>
+              <li>Responsible AI use for academic and professional tasks</li>
+              <li>Hands-on workflows using no-code and low-code AI tools</li>
+              <li>Capstone project and showcase for applied learning</li>
+            </ul>
+          </div>
+
+          <div class="module-grid">
+            <article class="module">
+              <div class="module-number">Module 1</div>
+              <h3>Websites, Documents & Presentations</h3>
+              <p>LLMs, Markdown, LaTeX, HTML, project websites, and research communication assets.</p>
+            </article>
+
+            <article class="module">
+              <div class="module-number">Module 2</div>
+              <h3>AI-Automated Data Analysis</h3>
+              <p>Code Interpreter, Julius, dashboards, data transformations, reports, and visualizations.</p>
+            </article>
+
+            <article class="module">
+              <div class="module-number">Module 3</div>
+              <h3>Research & Text Analysis</h3>
+              <p>Literature review, classification, sentiment, knowledge maps, and synthesis systems.</p>
+            </article>
+
+            <article class="module">
+              <div class="module-number">Module 4</div>
+              <h3>Custom GPTs & Chatbots</h3>
+              <p>RAG systems, custom assistants, Botpress workflows, and knowledge-base integration.</p>
+            </article>
+
+            <article class="module">
+              <div class="module-number">Module 5</div>
+              <h3>AI for Task Automation</h3>
+              <p>Agents, browser control, app-to-app workflows, and practical automation design.</p>
+            </article>
+
+            <article class="module">
+              <div class="module-number">Module 6</div>
+              <h3>Communication & Outreach</h3>
+              <p>Research summaries, scientific figures, video abstracts, visualization prompts, and scheduling.</p>
+            </article>
+
+            <article class="module">
+              <div class="module-number">Module 7</div>
+              <h3>Capstone Project & Showcase</h3>
+              <p>Peer feedback, final presentations, public Q&A, and responsible AI practice.</p>
+            </article>
+
+            <article class="module">
+              <div class="module-number">Portfolio</div>
+              <h3>Reflection & Learning Archive</h3>
+              <p>A curated space for weekly submissions, links, artifacts, and lessons learned.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="submissions">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">My weekly submissions</span>
+          <h2>A living archive of applied AI experiments.</h2>
+          <p>Updated with Workshop 3</p>
+        </div>
+
+        <div class="submissions-grid">
+          <article class="submission">
+            <div>
+              <div class="week">W1</div>
+              <h3>Research Website & AI Foundations</h3>
+              <p>Placeholder for Markdown, HTML, Canvas, and responsible prompting work.</p>
+            </div>
+
+            <a
+              class="project-link"
+              href="https://gaoyy03-droid.github.io/graph-ai-portfolio/"
+              target="_blank"
+              rel="noopener"
+            >
+              View project website →
+            </a>
+          </article>
+
+          <article class="submission">
+            <div>
+              <div class="week">W2</div>
+              <h3>Workshop 2: Automated Data Analysis</h3>
+              <p>Gapminder data analysis exploring relationships between two global indicators using AI tools.</p>
+            </div>
+
+            <a
+              class="project-link"
+              href="https://gaoyy03-droid.github.io/graph-ai-portfolio/Gapminder_Report.html"
+              target="_blank"
+              rel="noopener"
+            >
+              View project report →
+            </a>
+          </article>
+
+          <article class="submission">
+            <div>
+              <div class="week">W3</div>
+              <h3>Workshop 3: Job Market Data Analysis</h3>
+              <p>
+                Used LLMs in Google Sheets to extract information from job postings, then analyzed the data
+                with AI tools to explore relationships between experience requirements, programming languages,
+                and salaries.
+              </p>
+            </div>
+
+            <a
+              class="project-link"
+              href="https://gaoyy03-droid.github.io/graph-ai-portfolio/Data_Analyst_Job_Postings_Report.html"
+              target="_blank"
+              rel="noopener"
+            >
+              View project report →
+            </a>
+          </article>
+
+          <article class="submission">
+            <div>
+              <div class="week">W4</div>
+              <h3>Custom GPT / Chatbot Prototype</h3>
+              <p>Placeholder for a research or quality-management assistant concept.</p>
+            </div>
+
+            <span class="placeholder-link">Add link later →</span>
+          </article>
+
+          <article class="submission">
+            <div>
+              <div class="week">W5</div>
+              <h3>Task Automation Workflow</h3>
+              <p>Placeholder for a practical AI agent or app-to-app automation demo.</p>
+            </div>
+
+            <span class="placeholder-link">Add link later →</span>
+          </article>
+
+          <article class="submission">
+            <div>
+              <div class="week">W6</div>
+              <h3>Communication & Outreach Asset</h3>
+              <p>Placeholder for a scientific figure, summary, video abstract, or content plan.</p>
+            </div>
+
+            <span class="placeholder-link">Add link later →</span>
+          </article>
+
+          <article class="submission">
+            <div>
+              <div class="week">W7</div>
+              <h3>Capstone Progress</h3>
+              <p>Placeholder for prototype updates, peer feedback, and implementation notes.</p>
+            </div>
+
+            <span class="placeholder-link">Add link later →</span>
+          </article>
+
+          <article class="submission">
+            <div>
+              <div class="week">W8</div>
+              <h3>Final Showcase</h3>
+              <p>Placeholder for the final project presentation and reflection.</p>
+            </div>
+
+            <span class="placeholder-link">Add link later →</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="capstone">
+      <div class="container">
+        <div class="capstone-grid">
+          <div class="section-head">
+            <span class="eyebrow">Capstone direction</span>
+            <h2>Responsible AI for evidence-to-action workflows.</h2>
+            <p>Draft concept</p>
+
+            <br />
+
+            <p>
+              My capstone may explore how generative AI can help professionals transform complex scientific
+              and quality data into transparent, auditable, and decision-ready outputs — for example,
+              literature monitoring in cardiovascular disease, environmental risk-factor synthesis, or quality
+              knowledge management across global product teams.
             </p>
           </div>
-          <div class="stats" aria-label="Professional highlights">
-            <div class="stat"><strong>18+</strong><span>Years pharma leadership</span></div>
-            <div class="stat"><strong>3</strong><span>Global companies</span></div>
-            <div class="stat"><strong>8</strong><span>AI learning weeks</span></div>
+
+          <div class="highlight-box">
+            <h3>Research value</h3>
+            <p>
+              Accelerate literature review, summarize evidence for different audiences, and preserve scientific traceability.
+            </p>
+
+            <br />
+
+            <h3>Work value</h3>
+            <p>
+              Reduce repetitive documentation tasks while supporting quality, compliance, and cross-functional alignment.
+            </p>
           </div>
-        </div>
-      </aside>
-    </header>
-
-    <section id="about-me" class="section-card">
-      <div class="section-header">
-        <div>
-          <div class="kicker">About me</div>
-          <h2 class="section-title">Pharma quality leader, researcher, bridge-builder.</h2>
-        </div>
-        <span class="pill">Basel · Switzerland</span>
-      </div>
-
-      <div class="about-grid">
-        <div class="copy">
-          <p>
-            I bring <strong>strategic quality, product strategy, API and small-molecule expertise</strong>
-            to global pharmaceutical programs. My work spans CMC review, external supply quality,
-            inspection readiness, portfolio optimization, and cross-regional launches for global markets.
-          </p>
-          <p>
-            Alongside my industry work, I am pursuing doctoral research in global health, with an emphasis on
-            cardiovascular diseases, environmental risk factors, and translating complex evidence into practical
-            health insights. I am especially interested in how generative AI can support literature synthesis,
-            scientific communication, responsible automation, and reproducible analysis.
-          </p>
-          <div class="chips">
-            <span class="chip">Quality Product Strategy</span>
-            <span class="chip">API Supply Robustness</span>
-            <span class="chip">Global Health Analytics</span>
-            <span class="chip">CVD Research</span>
-            <span class="chip">AI for Productivity</span>
-          </div>
-        </div>
-
-        <div class="timeline" aria-label="Career and academic highlights">
-          <article class="timeline-item">
-            <div class="time">2019–Present</div>
-            <h3>Global Quality Manager · Bayer</h3>
-            <p>Leading quality compliance, data transparency, APAC onboarding, and global reliability initiatives.</p>
-          </article>
-          <article class="timeline-item">
-            <div class="time">2015–2019</div>
-            <h3>Senior Project Manager · Bayer</h3>
-            <p>Delivered launch, regulatory, resource, and supply-chain projects across EU and APAC portfolios.</p>
-          </article>
-          <article class="timeline-item">
-            <div class="time">2010–2014</div>
-            <h3>Product Manager External Supply · MSD</h3>
-            <p>Managed strategic external supply and global regulatory strategies for new molecules.</p>
-          </article>
-          <article class="timeline-item">
-            <div class="time">Education</div>
-            <h3>MIT MicroMasters · Tsinghua · ECNU</h3>
-            <p>Supply chain analytics, scientific publishing, and a foundation in rigorous interdisciplinary research.</p>
-          </article>
         </div>
       </div>
     </section>
+  </main>
 
-    <section id="course" class="section-card">
-      <div class="section-header">
-        <div>
-          <div class="kicker">About the course</div>
-          <h2 class="section-title">No-code AI tools for responsible task automation.</h2>
-        </div>
-        <span class="pill">The GRAPH Courses · 8-week live cohort</span>
-      </div>
+  <footer>
+    <div class="container footer-row">
+      <p>
+        Grace Yuying Gao Portfolio for Generative AI for Work & Research · Built as a one-page HTML site without frameworks.
+      </p>
 
-      <div class="course-grid">
-        <article class="course-feature">
-          <h3>Generative AI for Work & Research Productivity</h3>
-          <p>
-            This course combines weekly live workshops, help sessions, community discussion,
-            assessment feedback, capstone coaching, and a tutorial library. The goal is practical:
-            use AI responsibly to create documents, analyze data, synthesize research, build chatbots,
-            automate workflows, and communicate findings clearly.
-          </p>
-          <ul>
-            <li>Responsible AI use for academic and professional tasks</li>
-            <li>Hands-on workflows using no-code and low-code AI tools</li>
-            <li>Capstone project and showcase for applied learning</li>
-          </ul>
-        </article>
-
-        <div class="modules" aria-label="Course modules">
-          <article class="module" data-number="1">
-            <b>Module 1</b>
-            <h3>Websites, Documents & Presentations</h3>
-            <p>LLMs, Markdown, LaTeX, HTML, project websites, and research communication assets.</p>
-          </article>
-          <article class="module" data-number="2">
-            <b>Module 2</b>
-            <h3>AI-Automated Data Analysis</h3>
-            <p>Code Interpreter, Julius, dashboards, data transformations, reports, and visualizations.</p>
-          </article>
-          <article class="module" data-number="3">
-            <b>Module 3</b>
-            <h3>Research & Text Analysis</h3>
-            <p>Literature review, classification, sentiment, knowledge maps, and synthesis systems.</p>
-          </article>
-          <article class="module" data-number="4">
-            <b>Module 4</b>
-            <h3>Custom GPTs & Chatbots</h3>
-            <p>RAG systems, custom assistants, Botpress workflows, and knowledge-base integration.</p>
-          </article>
-          <article class="module" data-number="5">
-            <b>Module 5</b>
-            <h3>AI for Task Automation</h3>
-            <p>Agents, browser control, app-to-app workflows, and practical automation design.</p>
-          </article>
-          <article class="module" data-number="6">
-            <b>Module 6</b>
-            <h3>Communication & Outreach</h3>
-            <p>Research summaries, scientific figures, video abstracts, visualization prompts, and scheduling.</p>
-          </article>
-          <article class="module" data-number="7">
-            <b>Module 7</b>
-            <h3>Capstone Project & Showcase</h3>
-            <p>Peer feedback, final presentations, public Q&A, and responsible AI practice.</p>
-          </article>
-          <article class="module" data-number="8">
-            <b>Portfolio</b>
-            <h3>Reflection & Learning Archive</h3>
-            <p>A curated space for weekly submissions, links, artifacts, and lessons learned.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="submissions" class="section-card">
-      <div class="section-header">
-        <div>
-          <div class="kicker">My weekly submissions</div>
-          <h2 class="section-title">A living archive of applied AI experiments.</h2>
-        </div>
-        <span class="pill">Updated with Workshop 2</span>
-      </div>
-
-      <div class="submissions">
-        <article class="submission">
-          <div>
-            <div class="week">W1</div>
-            <h3>Research Website & AI Foundations</h3>
-            <p>Placeholder for Markdown, HTML, Canvas, and responsible prompting work.</p>
-          </div>
-          <a
-            class="placeholder-link"
-            href="https://gaoyy03-droid.github.io/graph-ai-portfolio/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open Workshop 1 Research Website and AI Foundations"
-          >
-            View project website →
-          </a>
-        </article>
-        <article class="submission">
-          <div>
-            <div class="week">W2</div>
-            <h3>Workshop 2: Automated Data Analysis</h3>
-            <p>Gapminder data analysis exploring relationships between two global indicators using AI tools.</p>
-          </div>
-          <a
-            class="placeholder-link"
-            href="https://gaoyy03-droid.github.io/graph-ai-portfolio/life_expectancy_gdp_per_capita_2020_report.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open Workshop 2 Automated Data Analysis report"
-          >
-            View project report →
-          <article class="submission">
-  <div>
-    <div class="week">W3</div>
-    <h3>Workshop 3: Job Market Data Analysis</h3>
-    <p>
-      Used LLMs in Google Sheets to extract information from job postings, then analyzed the data
-      with AI tools to explore relationships between experience requirements, programming languages,
-      and salaries.
-    </p>
-  </div>
-  <a
-    class="project-link"
-    href="https://gaoyy03-droid.github.io/graph-ai-portfolio/Data_Analyst_Job_Postings_Report.html"
-    target="_blank"
-    rel="noopener"
-  >
-    View project report →
-  </a>
-</article>
-            <div class="week">W4</div>
-            <h3>Custom GPT / Chatbot Prototype</h3>
-            <p>Placeholder for a research or quality-management assistant concept.</p>
-          </div>
-          <span class="placeholder-link">Add link later →</span>
-        </article>
-        <article class="submission">
-          <div>
-            <div class="week">W5</div>
-            <h3>Task Automation Workflow</h3>
-            <p>Placeholder for a practical AI agent or app-to-app automation demo.</p>
-          </div>
-          <span class="placeholder-link">Add link later →</span>
-        </article>
-        <article class="submission">
-          <div>
-            <div class="week">W6</div>
-            <h3>Communication & Outreach Asset</h3>
-            <p>Placeholder for a scientific figure, summary, video abstract, or content plan.</p>
-          </div>
-          <span class="placeholder-link">Add link later →</span>
-        </article>
-        <article class="submission">
-          <div>
-            <div class="week">W7</div>
-            <h3>Capstone Progress</h3>
-            <p>Placeholder for prototype updates, peer feedback, and implementation notes.</p>
-          </div>
-          <span class="placeholder-link">Add link later →</span>
-        </article>
-        <article class="submission">
-          <div>
-            <div class="week">W8</div>
-            <h3>Final Showcase</h3>
-            <p>Placeholder for the final project presentation and reflection.</p>
-          </div>
-          <span class="placeholder-link">Add link later →</span>
-        </article>
-      </div>
-    </section>
-
-    <section id="capstone" class="section-card">
-      <div class="section-header">
-        <div>
-          <div class="kicker">Capstone direction</div>
-          <h2 class="section-title">Responsible AI for evidence-to-action workflows.</h2>
-        </div>
-        <span class="pill">Draft concept</span>
-      </div>
-      <div class="copy">
-        <p>
-          My capstone may explore how generative AI can help professionals transform complex scientific and quality data
-          into transparent, auditable, and decision-ready outputs — for example, literature monitoring in cardiovascular
-          disease, environmental risk-factor synthesis, or quality knowledge management across global product teams.
-        </p>
-      </div>
-      <div class="capstone">
-        <article class="mini-card">
-          <h3>Research value</h3>
-          <p>Accelerate literature review, summarize evidence for different audiences, and preserve scientific traceability.</p>
-        </article>
-        <article class="mini-card">
-          <h3>Work value</h3>
-          <p>Reduce repetitive documentation tasks while supporting quality, compliance, and cross-functional alignment.</p>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      <div>
-        <strong>Grace Yuying Gao</strong>
-        Portfolio for Generative AI for Work & Research · Built as a one-page HTML site without frameworks.
-      </div>
       <div class="footer-links">
-        <a href="#about-me">About</a>
+        <a href="#about">About</a>
         <a href="#course">Course</a>
         <a href="#submissions">Submissions</a>
       </div>
-    </footer>
-  </main>
+    </div>
+  </footer>
 </body>
 </html>
