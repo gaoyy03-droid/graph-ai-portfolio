@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="Grace Yuying Gao's portfolio for Generative AI for Work & Research, featuring AI learning projects, data analysis, research synthesis, and responsible automation."
+    content="Grace Yuying Gao's portfolio for Generative AI for Work & Research, featuring AI learning projects, data analysis, research synthesis, responsible automation, and consultation contact."
   />
 
   <style>
@@ -429,6 +429,38 @@
       padding: 28px;
     }
 
+    .consultation-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .form-frame-wrap {
+      width: 100%;
+      background: #ffffff;
+    }
+
+    .consultation-frame {
+      width: 100%;
+      min-height: 760px;
+      border: 0;
+      display: block;
+    }
+
+    .form-fallback {
+      padding: 20px 28px 28px;
+      border-top: 1px solid var(--line);
+      background: #fcfcfd;
+    }
+
+    .form-fallback a {
+      color: var(--accent-dark);
+      font-weight: 900;
+      text-decoration: underline;
+    }
+
     footer {
       padding: 34px 0;
       border-top: 1px solid var(--line);
@@ -476,6 +508,10 @@
       section {
         padding: 62px 0;
       }
+
+      .consultation-frame {
+        min-height: 680px;
+      }
     }
 
     @media (max-width: 560px) {
@@ -490,6 +526,10 @@
       .timeline-item {
         grid-template-columns: 1fr;
         gap: 4px;
+      }
+
+      .consultation-frame {
+        min-height: 620px;
       }
     }
   </style>
@@ -508,6 +548,7 @@
         <a href="#course">Course</a>
         <a href="#submissions">Submissions</a>
         <a href="#capstone">Capstone</a>
+        <a href="#consultation">Consultation</a>
       </nav>
     </div>
   </header>
@@ -526,6 +567,7 @@
           <div class="button-row">
             <a class="button button-primary" href="#submissions">View weekly work →</a>
             <a class="button button-secondary" href="#course">Explore the course</a>
+            <a class="button button-secondary" href="#consultation">Contact for consultation</a>
           </div>
         </div>
 
@@ -867,6 +909,44 @@
         </div>
       </div>
     </section>
+
+    <section id="consultation">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contact for Consultation</span>
+          <h2>Interested in collaborating or requesting a consultation?</h2>
+          <p>
+            Please complete the form below to share your needs, project context, and preferred way to connect.
+          </p>
+        </div>
+
+        <div class="consultation-card">
+          <div class="form-frame-wrap">
+            <iframe
+              class="consultation-frame"
+              src="https://docs.google.com/spreadsheets/d/1pJk8ygetbuUZK1HeLN6KuXXhPV8hQBV8rYK5DLhmxnw/edit?resourcekey=&gid=1333228740#gid=1333228740"
+              title="Consultation contact form"
+              loading="lazy"
+            >
+              Loading…
+            </iframe>
+          </div>
+
+          <div class="form-fallback">
+            <p>
+              If the embedded form does not load, please
+              <a
+                href="https://docs.google.com/spreadsheets/d/1pJk8ygetbuUZK1HeLN6KuXXhPV8hQBV8rYK5DLhmxnw/edit?resourcekey=&gid=1333228740#gid=1333228740"
+                target="_blank"
+                rel="noopener"
+              >
+                open the consultation form in a new tab
+              </a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -879,6 +959,7 @@
         <a href="#about">About</a>
         <a href="#course">Course</a>
         <a href="#submissions">Submissions</a>
+        <a href="#consultation">Consultation</a>
       </div>
     </div>
   </footer>
